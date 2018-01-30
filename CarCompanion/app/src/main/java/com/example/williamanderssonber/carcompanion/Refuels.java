@@ -19,13 +19,13 @@ public class Refuels {
     public Date date;
 
     @ColumnInfo(name = "amount")
-    public float amount;
+    public double amount;
 
     @ColumnInfo(name = "total_price")
-    public float totalPrice;
+    public double totalPrice;
 
     @ColumnInfo(name = "price")
-    public float price;
+    public double price;
 
     @ColumnInfo(name = "mileage")
     public int mileage;
@@ -39,19 +39,19 @@ public class Refuels {
     public void setDate(Date date){
         this.date = date;
     }
-    public float getAmount(){
+    public double getAmount(){
         return amount;
     }
     public void setAmount(float amount){
         this.amount = amount;
     }
-    public float getTotalPrice(){
+    public double getTotalPrice(){
         return totalPrice;
     }
     public void setTotalPrice(float totalPrice){
         this.totalPrice = totalPrice;
     }
-    public float getPrice(){
+    public double getPrice(){
         return price;
     }
     public void setPrice(float price){

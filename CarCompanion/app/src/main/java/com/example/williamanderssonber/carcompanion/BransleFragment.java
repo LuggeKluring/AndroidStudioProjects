@@ -20,10 +20,10 @@ public class BransleFragment extends Fragment {
         
     }
     TextView fuelAverage;
-    double fuelAverageValue = 8.6;
+    public double fuelAverageValue = 8.6;
     public void writeStats(){
         fuelAverage = getView().findViewById(R.id.fuel_average_value);
-        fuelAverage.setText(fuelAverageValue+" l/100km");
+        fuelAverage.setText(fuelAverageValue + " l/100km");
     }
 
     public void fuelFABClick(View view){
