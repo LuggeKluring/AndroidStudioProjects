@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.williamanderssonber.broccolli">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/RetroSplash">
+        <activity
+            android:name=".SplashScreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".StartScreen"
+            android:label="@string/title_activity_start_screen"
+            android:theme="@style/RetroSplash.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Encryption"
+            android:label="Encryption"
+            android:parentActivityName=".StartScreen" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.williamanderssonber.broccolli.StartScreen" />
+        <activity
+            android:name=".Calendar"
+            android:label="@string/title_activity_calendar"
+            android:parentActivityName=".StartScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.williamanderssonber.broccolli.StartScreen" />
+        </activity>
+    </application>
+
+</manifest>
