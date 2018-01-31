@@ -11,8 +11,8 @@ import java.util.List;
 @Dao
 public interface RefuelsDao {
     @Query("SELECT * FROM refuels")
-    List<Refuels> getAll();
+    List<Refuels> getAllRefuelData();
 
     @Query("SELECT amount FROM refuels")
-    List<Refuels> loadRefuelData();
+    List<Refuels> getRefuelData();
 }

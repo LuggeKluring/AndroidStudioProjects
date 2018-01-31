@@ -10,8 +10,8 @@
     <string name="tab1">Min bil</string>
     <string name="tab2">Bränsle</string>
     <string name="tab3">Service</string>
-    <string name="fuel_average_value">12,3</string>
     <string name="fuel_average_text">Förbrukning genomsnitt</string>
+    <string name="fuel_unit"> l/100km</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
