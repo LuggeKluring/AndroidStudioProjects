@@ -16,7 +16,7 @@ public class Refuels {
     public int refuelId;
 
     @ColumnInfo(name = "date")
-    public Date date;
+    public String date;
 
     @ColumnInfo(name = "amount")
     public double amount;
@@ -33,10 +33,10 @@ public class Refuels {
     public int getRefuelId(){
         return refuelId;
     }
-    public Date getDate(){
+    public String getDate(){
         return date;
     }
-    public void setDate(Date date){
+    public void setDate(String date){
         this.date = date;
     }
     public double getAmount(){

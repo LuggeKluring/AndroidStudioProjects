@@ -12,6 +12,9 @@
     <string name="tab3">Service</string>
     <string name="fuel_average_text">Förbrukning genomsnitt</string>
     <string name="fuel_unit"> l/100km</string>
+    <string name="fuel_amount_refueled">Mängd tankad</string>
+    <string name="fuel_money_spent">Total bränslekostnad</string>
+    <string name="fuel_average_cost">Genomsnittsligt bensinpris</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -29,4 +32,5 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="fuel_average_cost2">Genomsnittsligt bränslepris</string>
 </resources>
