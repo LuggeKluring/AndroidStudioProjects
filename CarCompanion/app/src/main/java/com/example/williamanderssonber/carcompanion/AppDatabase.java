@@ -11,13 +11,7 @@ import android.content.Context;
 
 @Database(entities = {Refuels.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    private static AppDatabase INSTANCE;
     public abstract RefuelsDao refuelsDao();
-    public static AppDatabase getAppDatabase(Context context){
-        if (INSTANCE == null){
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "refuels-database").allowMainThreadQueries().build();
-        }
-        return INSTANCE;
-    }
+
 }
 

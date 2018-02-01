@@ -5,29 +5,41 @@ package com.example.williamanderssonber.carcompanion;
         import android.os.Bundle;
         import android.support.design.widget.FloatingActionButton;
         import android.support.v4.app.Fragment;
+        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.TextView;
+
+        import java.util.List;
 
 
 public class BransleFragment extends Fragment {
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        App databasen = new App();
+        databasen.onCreate(getContext());
+        Refuels tank = new Refuels();
+
+        kalle = databasen.get().getDB().refuelsDao().getAll();
+
+        Log.d("DatabasBös", "onCreate: "+kalle.get(0).amount);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_bransle, container, false);
 
     }
+    List<Refuels> kalle;
+
     TextView fuelAverage;
     TextView fuelTotalCost;
     TextView fuelAveragePrice;
     TextView fuelAmountRefueled;
     public double fuelAverageValue = 8.6;
     public double fuelTotalCostValue = 680.56;
-    public double fuelAmountRefueledValue = 25.6;
+    public double fuelAmountRefueledValue = 1;
     public double fuelAveragePriceValue = fuelTotalCostValue/fuelAmountRefueledValue;
     public void writeStats(){
         fuelAverage = getView().findViewById(R.id.fuel_average_value);
