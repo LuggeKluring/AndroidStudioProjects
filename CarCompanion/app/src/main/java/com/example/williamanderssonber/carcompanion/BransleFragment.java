@@ -37,9 +37,9 @@ public class BransleFragment extends Fragment {
     TextView fuelTotalCost;
     TextView fuelAveragePrice;
     TextView fuelAmountRefueled;
-    public double fuelAverageValue = 8.6;
-    public double fuelTotalCostValue = 680.56;
-    public double fuelAmountRefueledValue = 1;
+    public double fuelAverageValue;
+    public double fuelTotalCostValue;
+    public double fuelAmountRefueledValue;
     public double fuelAveragePriceValue = fuelTotalCostValue/fuelAmountRefueledValue;
     public void writeStats(){
         fuelAverage = getView().findViewById(R.id.fuel_average_value);
