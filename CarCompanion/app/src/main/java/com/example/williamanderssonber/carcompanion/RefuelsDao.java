@@ -1,6 +1,7 @@
 package com.example.williamanderssonber.carcompanion;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.RoomWarnings;
@@ -18,7 +19,12 @@ public interface RefuelsDao {
 
 
     @Insert
-    void insertAll(Refuels... refuels);
+    public void insert(Refuels refuels);
+
+    @Query("DELETE FROM refuels")
+    public void deleteAll();
+
+   /* void insertAll(Refuels... refuels);*/
     /*@Query("SELECT amount FROM refuels")
     List<Refuels> getRefuelData();*/
 }

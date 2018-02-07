@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
     int mNumOfTabs;
-    
+
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs){
         super(fm);
@@ -22,10 +22,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                BilFragment tab1 = new BilFragment();
+                BransleFragment tab1 = new BransleFragment();
+
                 return tab1;
             case 1:
-                BransleFragment tab2 = new BransleFragment();
+                BilFragment tab2 = new BilFragment();
                 return tab2;
             case 2:
                 ServiceFragment tab3 = new ServiceFragment();

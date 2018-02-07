@@ -1,15 +1,14 @@
 package com.example.williamanderssonber.carcompanion;
 
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
+import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -17,7 +16,7 @@ import java.util.Locale;
 public class RegisterRefuel extends AppCompatActivity {
 
     Calendar c = Calendar.getInstance();
-    static String addRefuelDateValue;
+    static String addRefuelDateString;
     EditText addRefuelDate;
     static double addRefuelAmountNum;
     EditText addRefuelAmount;
@@ -26,43 +25,76 @@ public class RegisterRefuel extends AppCompatActivity {
     static int addRefuelMileageNum;
     EditText addRefuelMileage;
     Button addRefuelSubmit;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_refuel);
-
+        //
+        //******* Initierar databasen *******
+        //
+        final App databasen = new App();
+        databasen.onCreate(this);
+        //
         addRefuelAmount = findViewById(R.id.add_refuel_amount);
         addRefuelCost = findViewById(R.id.add_refuel_cost);
         addRefuelMileage = findViewById(R.id.add_refuel_mileage);
         addRefuelDate = findViewById(R.id.add_refuel_date);
         addRefuelSubmit = findViewById(R.id.add_refuel_submit);
+        updateLabel();
+        //
+        //****** Öppnar en DatePicker när man klickar på "date-fältet" *******
+        //
         addRefuelDate.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 new DatePickerDialog(RegisterRefuel.this, date, c.get(Calendar.YEAR), c.get(Calendar.MONTH),
                         c.get(Calendar.DAY_OF_MONTH)).show();
-
-
-                //BransleFragment.databasen.get().getDB().refuelsDao().insertAll(tank);
             }
         });
+        //
+        //****** Skickar iväg all data till databasen när man klickar på "submitknappen" ******
+        //
         addRefuelSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addRefuelAmountNum = Double.parseDouble(addRefuelAmount.getText().toString());
-                addRefuelCostNum = Double.parseDouble(addRefuelCost.getText().toString());
-                addRefuelMileageNum = Integer.parseInt(addRefuelMileage.getText().toString());
-                addRefuelDateValue = addRefuelDate.getText().toString();
-                /*Refuels tank = new Refuels();
-                tank.setMileage(addRefuelMileageNum);
-                tank.setDate(addRefuelDateValue);
-                tank.setAmount(addRefuelAmountNum);*/
+                String addRefuelAmountString = addRefuelAmount.getText().toString();
+                String addRefuelCostString = addRefuelCost.getText().toString();
+                String addRefuelMileageString = addRefuelMileage.getText().toString();
+                addRefuelDateString = addRefuelDate.getText().toString();
+                //
+                //****** Kollar om alla fält är ifyllda för att undvika ett parsing-error p.g.a. tomt fält, visar isf en toast ******
+                //
+                if(addRefuelAmountString.matches("") && addRefuelCostString.matches("") && addRefuelMileageString.matches("") && addRefuelDateString.matches("")){
+                    Toast.makeText(RegisterRefuel.this, "Fyll i alla fält!", Toast.LENGTH_SHORT).show();
+                }
+                //
+                else{
+                    //
+                    //****** Konverterar de strings man får från textinmatningen till nummer ******
+                    //
+                    addRefuelAmountNum = Double.parseDouble(addRefuelAmountString);
+                    addRefuelCostNum = Double.parseDouble(addRefuelCostString);
+                    addRefuelMileageNum = Integer.parseInt(addRefuelMileageString);
+                    //
+                    //****** Skapar en ny "tuppel" (Objekt i databasen) och definerar datan till kolumnerna ******
+                    //
+                    Refuels tank = new Refuels();
+                    tank.setMileage(addRefuelMileageNum);
+                    tank.setAmount(addRefuelAmountNum);
+                    tank.setCost(addRefuelCostNum);
+                    tank.setDate(addRefuelDateString);
+                    databasen.get().getDB().refuelsDao().insert(tank);
+                    Intent backToFragment = new Intent(RegisterRefuel.this, MainActivity.class);
+                    startActivity(backToFragment);
+
+                    //
+                    //
+                }
             }
         });
-
+        //
+        //
 
     }
 

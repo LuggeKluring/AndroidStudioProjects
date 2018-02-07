@@ -33,4 +33,7 @@
         completions."
     </string>
     <string name="fuel_average_cost2">Genomsnittsligt bränslepris</string>
+    <string name="date_label">Period</string>
+    <string name="date_set_button">Hämta datum</string>
+    <string name="date_show_history">Visa tankhistorik</string>
 </resources>
