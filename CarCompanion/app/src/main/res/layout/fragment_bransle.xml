@@ -75,7 +75,7 @@
                         android:text="@string/date_label" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/showPeriod"
                         style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,12 +86,12 @@
                         android:theme="@android:style/Widget.Material.Light.Button.Borderless.Colored" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/showHistory"
                         style="@android:style/Widget.Material.Button.Borderless.Colored"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_toStartOf="@+id/button"
+                        android:layout_toStartOf="@+id/showPeriod"
                         android:text="@string/date_show_history"
                         android:textColor="@color/primaryColor" />
                 </RelativeLayout>
@@ -116,23 +116,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/fuel_average_text" />
 
-                    <ImageView
-                        android:id="@+id/fuel_average_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/fuel_average_text"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/fuel_average_text"
-                        android:layout_marginEnd="112dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_local_gas_station_black_24dp" />
-
                     <TextView
                         android:id="@+id/fuel_average_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_toEndOf="@+id/fuel_average_icon"
                         android:text="[PLACEHOLDER]"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
@@ -150,7 +138,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="63dp">
+                    android:layout_height="63dp"
+                    android:layout_marginBottom="16dp">
 
                     <TextView
                         android:id="@+id/textView3"
@@ -166,6 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_below="@+id/textView3"
+                        android:layout_marginTop="6dp"
                         android:text="[PLACEHOLDER]"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
                 </RelativeLayout>
@@ -179,8 +169,8 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/fuel_average_cost_text"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:text="@string/fuel_average_cost2" />
 
                     <TextView
@@ -234,7 +224,20 @@
 
 
     </android.support.v4.widget.NestedScrollView>
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="140dp">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/viewModeFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="mini"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/ic_trending_up_yellow_24dp"/>
+    </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

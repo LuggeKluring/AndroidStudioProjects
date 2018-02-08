@@ -11,6 +11,7 @@ package com.example.williamanderssonber.carcompanion;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.TextView;
 
         import java.text.DecimalFormat;
@@ -47,8 +48,21 @@ public class BransleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_bransle, container, false);
     }
+    public void changeView(){
+
+    }
+
     public void onStart() {
         super.onStart();
+        Button showHistory = getView().findViewById(R.id.showHistory);
+        showHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toHistory = new Intent(getActivity(), RefuelHistory.class);
+                startActivity(toHistory);
+            }
+        });
+
         FloatingActionButton addRefuelFab = getView().findViewById(R.id.addRefuelFab);
         addRefuelFab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -62,15 +76,6 @@ public class BransleFragment extends Fragment {
         writeStats();
     }
 
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        writeStats();
-        fuelAverage.invalidate();
-        fuelAmountRefueled.invalidate();
-        fuelTotalCost.invalidate();
-        fuelAveragePrice.invalidate();
-    }
     @SuppressLint("SetTextI18n")
     public void writeStats(){
         //

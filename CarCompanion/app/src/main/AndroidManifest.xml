@@ -21,8 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterRefuel"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".RegisterRefuel"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_activity_register_refuel"/>
+        <activity
+            android:name=".RefuelHistory"
+            android:label="@string/title_activity_refuel_history"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
