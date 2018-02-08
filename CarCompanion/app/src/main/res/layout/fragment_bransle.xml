@@ -25,38 +25,86 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:clickable="true"
-        android:onClick="fuelFABClick"
-        app:backgroundTint="@color/primaryColor"
-        app:layout_anchor="@+id/nestedScrollView"
-        app:layout_anchorGravity="right|bottom"
-        app:srcCompat="@drawable/ic_addfuelstat" />
-
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp">
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true"
+                android:elevation="2dp"
+                app:cardCornerRadius="2dp"
+                app:contentPadding="8dp"
+                app:cardElevation="2dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <DatePicker
+                        android:id="@+id/datePicker2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/textView10"
+                        android:layout_gravity="center"
+                        android:calendarTextColor="@color/primaryDarkColor"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:dayOfWeekTextAppearance="@color/primaryDarkColor"
+                        android:headerBackground="@color/primaryColor"
+                        android:headerDayOfMonthTextAppearance="@android:style/TextAppearance.Large"
+                        android:headerMonthTextAppearance="@android:style/TextAppearance.Large"
+                        android:headerYearTextAppearance="@android:style/TextAppearance.Medium" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/date_label" />
+
+                    <Button
+                        android:id="@+id/showPeriod"
+                        style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/datePicker2"
+                        android:text="@string/date_set_button"
+                        android:textColor="@color/primaryColor"
+                        android:theme="@android:style/Widget.Material.Light.Button.Borderless.Colored" />
+
+                    <Button
+                        android:id="@+id/showHistory"
+                        style="@android:style/Widget.Material.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toStartOf="@+id/showPeriod"
+                        android:text="@string/date_show_history"
+                        android:textColor="@color/primaryColor" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:elevation="2dp"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="2dp"
-                app:contentPadding="8dp">
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_content_padding">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -68,42 +116,145 @@
                         android:layout_height="wrap_content"
                         android:text="@string/fuel_average_text" />
 
-                    <ImageView
-                        android:id="@+id/fuel_average_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginTop="40dp"
-                        android:src="@drawable/ic_local_gas_station_black_24dp" />
-
                     <TextView
                         android:id="@+id/fuel_average_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/fuel_average_icon"
-                        android:layout_marginStart="14dp"
-                        android:layout_toEndOf="@+id/fuel_average_icon"
+                        android:layout_alignParentBottom="true"
                         android:text="[PLACEHOLDER]"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
-            <!--<android.support.v7.widget.CardView
+            <android.support.v7.widget.CardView
+                android:id="@+id/fuel_chart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/cardView"
-                android:layout_below="@+id/cardView"
+                android:layout_height="150dp"
+                android:elevation="2dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_content_padding">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/fuel_money_spent" />
+
+                    <TextView
+                        android:id="@+id/fuel_money_spent_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/textView3"
+                        android:layout_marginTop="6dp"
+                        android:text="[PLACEHOLDER]"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_gravity="bottom">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/fuel_average_cost2" />
+
+                    <TextView
+                        android:id="@+id/fuel_average_cost_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:text="[PLACEHOLDER]"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:elevation="2dp"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="2dp"
-                app:contentPadding="8dp" />-->
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/card_content_padding">
 
-        </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/fuel_amount_refueled" />
+
+                    <TextView
+                        android:id="@+id/fuel_amount_refueled_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:text="[PLACEHOLDER]"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+        </LinearLayout>
 
 
     </android.support.v4.widget.NestedScrollView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="140dp">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/viewModeFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="mini"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/ic_trending_up_yellow_24dp"/>
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addRefuelFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="16dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/black"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_addfuelstat_yellow" />
+    </FrameLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

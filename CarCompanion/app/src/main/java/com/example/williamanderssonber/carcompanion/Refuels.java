@@ -16,16 +16,15 @@ public class Refuels {
     public int refuelId;
 
     @ColumnInfo(name = "date")
-    public Date date;
+    public String date;
 
     @ColumnInfo(name = "amount")
     public double amount;
 
     @ColumnInfo(name = "total_price")
-    public double totalPrice;
+    public double cost;
 
-    @ColumnInfo(name = "price")
-    public double price;
+
 
     @ColumnInfo(name = "mileage")
     public int mileage;
@@ -33,30 +32,28 @@ public class Refuels {
     public int getRefuelId(){
         return refuelId;
     }
-    public Date getDate(){
+
+    public String getDate(){
         return date;
     }
-    public void setDate(Date date){
+    public void setDate(String date){
         this.date = date;
     }
+
     public double getAmount(){
         return amount;
     }
-    public void setAmount(float amount){
+    public void setAmount(double amount){
         this.amount = amount;
     }
-    public double getTotalPrice(){
-        return totalPrice;
+
+    public double getCost(){
+        return cost;
     }
-    public void setTotalPrice(float totalPrice){
-        this.totalPrice = totalPrice;
+    public void setCost(double totalPrice){
+        this.cost = totalPrice;
     }
-    public double getPrice(){
-        return price;
-    }
-    public void setPrice(float price){
-        this.price = price;
-    }
+
     public int getMileage(){
         return mileage;
     }

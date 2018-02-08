@@ -2,18 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_reset"
         android:icon="@drawable/ic_directions_car_black_24dp"
-        android:title="@string/title_home" />
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_local_gas_station_black_24dp"
-        android:title="@string/title_dashboard" />
-
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_build_black_24dp"
-        android:title="@string/title_notifications"
-        />
+        android:title="Töm data" />
 
 </menu>

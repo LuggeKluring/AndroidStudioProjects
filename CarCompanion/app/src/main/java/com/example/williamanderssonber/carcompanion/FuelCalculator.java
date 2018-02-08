@@ -6,8 +6,6 @@ package com.example.williamanderssonber.carcompanion;
 
 public class FuelCalculator {
 
-    public void getRefuelData(){
-        getAllRefuelData();
-    }
+
 
 }
